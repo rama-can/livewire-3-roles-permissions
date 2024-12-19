@@ -1,0 +1,64 @@
+<?php
+
+namespace App\Console\Commands;
+
+use Illuminate\Console\Command;
+use Illuminate\Filesystem\Filesystem;
+
+class MakeService extends Command
+{
+    /**
+     * The name and signature of the console command.
+     *
+     * @var string
+     */
+    protected $signature = 'make:service {name} {model}';
+
+    /**
+     * The console command description.
+     *
+     * @var string
+     */
+    protected $description = 'Membuat service baru di folder app/Services';
+
+    protected $files;
+
+    public function __construct(Filesystem $files)
+    {
+        parent::__construct();
+        $this->files = $files;
+    }
+
+    public function handle()
+    {
+        $name = $this->argument('name');
+        $model = $this->argument('model');
+        $servicePath = app_path("Services/{$name}.php");
+
+        // Cek apakah service sudah ada
+        if ($this->files->exists($servicePath)) {
+            $this->error("Service {$name} sudah ada!");
+            return;
+        }
+
+        // Membuat direktori jika belum ada
+        if (!$this->files->isDirectory(app_path('Services'))) {
+            $this->files->makeDirectory(app_path('Services'), 0755, true);
+        }
+
+        // Ambil isi stub
+        $stub = $this->getStub();
+        $content = str_replace(['{{ serviceName }}', '{{ modelName }}'], [$name, $model], $stub);
+
+        // Membuat file service
+        $this->files->put($servicePath, $content);
+        $this->info("Service {$name} berhasil dibuat.");
+        $this->info("{$servicePath}");
+    }
+
+    protected function getStub()
+    {
+        // Ambil stub dari file di resources/stubs/service.stub
+        return $this->files->get(resource_path('stubs/service.stub'));
+    }
+}

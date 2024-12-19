@@ -1,0 +1,140 @@
+<?php
+
+namespace App\Modules\Admin\Category;
+
+use Livewire\Component;
+use App\Models\Category;
+use App\Models\CategoryTranslation;
+use Illuminate\Support\Str;
+use Livewire\Attributes\On;
+use Illuminate\Validation\Rule;
+use TallStackUi\Traits\Interactions;
+use Cviebrock\EloquentSluggable\Services\SlugService;
+
+class Resource extends Component
+{
+    use Interactions;
+
+    public $translations = [], $selectedLocale = 'en', $locales = ['en', 'id'], $isModalOpen = false;
+    public $categories, $parentCategories, $categoryId, $parentId, $status = 'draft';
+
+    public function mount()
+    {
+        $this->authorize('read categories');
+        $this->locales = supportedLocales();
+        $this->updatedSelectedLocale();
+    }
+
+    #[On('modal-form')]
+    public function modalForm($id = null)
+    {
+        $this->resetFields();
+        if ($id) {
+            $category = Category::with('translations')->findOrFail($id);
+            $this->fillCategoryData($category);
+        }
+        $this->isModalOpen = true;
+    }
+
+    public function updatedSelectedLocale()
+    {
+        if ($this->categoryId) $this->loadTranslations();
+        $this->loadParentCategories();
+    }
+
+    protected function loadTranslations()
+    {
+        $category = Category::with('translations')->findOrFail($this->categoryId);
+        foreach ($this->locales as $locale) {
+            $translation = $category->translations()->where('locale', $locale)->first();
+            $this->translations[$locale] = [
+                'name' => $translation->name ?? '',
+                'slug' => $translation->slug ?? '',
+                'description' => $translation->description ?? '',
+            ];
+        }
+    }
+
+    protected function loadParentCategories()
+    {
+        $this->parentCategories = Category::whereNull('parent_id')
+            ->with(['translations' => fn($query) => $query->where('locale', $this->selectedLocale)])
+            ->get()
+            ->map(fn($category) => [
+                'id' => $category->id,
+                'name' => $category->translations->first()->name ?? '',
+            ]);
+        $this->parentCategories->prepend([
+            'id' => null,
+            'name' => '-- Choose Parent Category --',
+        ]);
+    }
+
+    public function save()
+    {
+        $locale = implode(',', supportedLocales());
+        $selectedLocale = $this->selectedLocale;
+        $validated = $this->validate(
+            [
+                'selectedLocale' => 'required|in:' . $locale,
+                'parentId' => 'nullable|integer',
+                'translations.' . $selectedLocale . '.name' => 'required|string',
+                'translations.' . $selectedLocale . '.description' => 'nullable|string',
+                "translations.{$selectedLocale}.slug" => [
+                    'required',
+                    Rule::unique('category_translations', 'slug')->where('locale', $selectedLocale)->ignore($this->categoryId, 'category_id'),
+                    'regex:/^[a-z0-9-]+$/',
+                ],
+                'status' => 'required|string|in:draft,published,archived',
+            ],
+            [
+                'translations.' . $selectedLocale . '.name.required' => 'The name field is required',
+                'translations.' . $selectedLocale . '.name.string' => 'The name field must be a string',
+                'translations.' . $selectedLocale . '.description.string' => 'The description field must be a string',
+                'status.required' => 'The status field is required',
+                'status.string' => 'The status field must be a string',
+                'status.in' => 'The status field must be one of: draft, published, archived',
+            ]
+        );
+
+        dd($validated, $this->translations);
+        $category = $this->categoryId ? Category::findOrFail($this->categoryId) : new Category();
+
+        $category->parent_id = $validated['parentId'];
+        $category->status = $validated['status'];
+        $category->save();
+    }
+
+    #[On('delete-confirmation')]
+    public function delete($id)
+    {
+        $category = Category::findOrFail($id);
+        $category->delete();
+        $category->deleteTranslations();
+        $this->toast()->success('Category deleted successfully')->send();
+        $this->dispatch('refreshDatatable');
+    }
+
+    public function resetFields()
+    {
+        $this->categoryId = null;
+        $this->parentId = null;
+        $this->status = 'draft';
+        $this->selectedLocale = 'en';
+        $this->isModalOpen = false;
+        $this->translations = ['name' => '', 'description' => '', 'slug' => '', 'status' => ''];
+    }
+
+    public function render()
+    {
+        return view('pages.admin.category.resource');
+    }
+
+    private function fillCategoryData($category)
+    {
+        $this->categoryId = $category->id;
+        $this->parentId = $category->parent_id;
+        $this->status = $category->status;
+        $this->loadTranslations();
+    }
+}
