@@ -18,6 +18,8 @@ class SettingSeeder extends Seeder
             ['group' => 'general', 'key' => 'site_thumbnail', 'value' => null, 'type' => 'image'],
             ['group' => 'general', 'key' => 'site_url', 'value' => 'https://ramacan.dev', 'type' => 'text'],
             ['group' => 'general', 'key' => 'site_theme', 'value' => '#ffffff', 'type' => 'color'],
+            ['group' => 'general', 'key' => 'cv', 'value' => null, 'type' => 'file'],
+            ['group' => 'general', 'key' => 'personal_image', 'value' => null, 'type' => 'image'],
             ['group' => 'general', 'key' => 'pagination_limit', 'value' => '10', 'type' => 'number'],
             [
                 'group' => 'general',

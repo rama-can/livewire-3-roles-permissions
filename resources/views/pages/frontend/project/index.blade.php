@@ -1,4 +1,7 @@
 <div>
+    <x-seo-meta
+        title="Projects"
+    />
     <section class="py-10">
         <div class="container px-6 mx-auto">
             <div class="text-center">

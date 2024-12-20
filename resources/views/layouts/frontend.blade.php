@@ -16,20 +16,19 @@
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-
     @stack('styles')
-
     <tallstackui:script />
     <!-- Styles -->
     @livewireStyles
     @vite(['resources/css/app.css', 'resources/js/app.js'])
     <script>
-        if (localStorage.getItem('dark-mode') === 'false' || !('dark-mode' in localStorage)) {
+        if (localStorage.getItem('dark-mode') === 'false' || !localStorage.getItem('dark-mode')) {
             document.querySelector('html').classList.remove('dark');
             document.querySelector('html').style.colorScheme = 'light';
         } else {
             document.querySelector('html').classList.add('dark');
             document.querySelector('html').style.colorScheme = 'dark';
+            localStorage.setItem('dark-mode', 'true');
         }
     </script>
 </head>

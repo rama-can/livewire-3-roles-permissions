@@ -54,6 +54,7 @@
             "author": {
                 "@type": "Person",
                 "name": "{{ themes('general', 'site_name') }}",
+                "alternateName": ["Rama Can", "ramacan", "_ramacan", "vid ramadhan", "david ramadhan", "ramadhan"],
                 "url": "{{ themes('general', 'site_url') }}",
                 "sameAs": [
                     "https://www.linkedin.com/in/rama-can",
@@ -88,6 +89,7 @@
             "publisher": {
                 "@type": "Person",
                 "name": "{{ themes('general', 'site_name') }}",
+                "alternateName": ["Rama Can", "ramacan", "_ramacan", "vid ramadhan", "david ramadhan", "ramadhan"],
                 "url": "{{ themes('general', 'site_url') }}",
                 "sameAs": [
                     "https://www.linkedin.com/in/rama-can",

@@ -1,4 +1,7 @@
 <div>
+    <x-seo-meta
+        title="Rama Can"
+    />
     <section class="relative h-[90vh] flex flex-col justify-center bg-slate-100 dark:bg-slate-900 overflow-hidden">
 
         <div class="w-full max-w-6xl mx-auto px-4 md:px-6 py-24 mt-8 mb-5">
@@ -20,11 +23,10 @@
 
                 <div class="container mx-auto px-4 py-16 sm:px-6 lg:px-8">
                     <div class="grid grid-cols-1 gap-8 lg:grid-cols-2 lg:gap-16">
-                        <!-- Gambar -->
                         <div class="flex items-center justify-center order-1 lg:order-2">
                             <div class="relative w-40 h-40 sm:w-80 sm:h-80">
                                 <img
-                                    src="https://github.com/rama-can.png"
+                                    src="{{ asset('storage/'. themes('general', 'cv')) }}"
                                     alt="Rama Can"
                                     class="rounded-full"
                                     priority
@@ -50,7 +52,7 @@
                             <div class="mt-8 flex flex-col sm:flex-row gap-4">
                                 <a
                                     class="inline-flex justify-center whitespace-nowrap rounded-lg px-3.5 py-2.5 text-sm font-semibold text-slate-200 dark:text-slate-800 bg-gradient-to-r from-slate-800 to-slate-700 dark:from-slate-200 dark:to-slate-100 dark:hover:bg-slate-100 shadow focus:outline-none focus:ring focus:ring-slate-500/50 focus-visible:outline-none focus-visible:ring focus-visible:ring-slate-500/50 relative before:absolute before:inset-0 before:rounded-[inherit] before:bg-[linear-gradient(45deg,transparent_25%,theme(colors.white/.5)_50%,transparent_75%,transparent_100%)] dark:before:bg-[linear-gradient(45deg,transparent_25%,theme(colors.white)_50%,transparent_75%,transparent_100%)] before:bg-[length:250%_250%,100%_100%] before:bg-[position:200%_0,0_0] before:bg-no-repeat before:[transition:background-position_0s_ease] hover:before:bg-[position:-100%_0,0_0] hover:before:duration-[1500ms]"
-                                    href="#0"
+                                    href="{{ asset('storage/'. themes('general', 'cv')) }}" download="ramacan-cv.pdf"
                                 >
                                     {{ __('general.download_cv') }}
                                 </a>
