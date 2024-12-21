@@ -22,13 +22,13 @@
     @livewireStyles
     @vite(['resources/css/app.css', 'resources/js/app.js'])
     <script>
-        if (localStorage.getItem('dark-mode') === 'false' || !localStorage.getItem('dark-mode')) {
-            document.querySelector('html').classList.remove('dark');
-            document.querySelector('html').style.colorScheme = 'light';
-        } else {
+        if (!localStorage.getItem('dark-mode') || localStorage.getItem('dark-mode') === 'true') {
             document.querySelector('html').classList.add('dark');
             document.querySelector('html').style.colorScheme = 'dark';
-            localStorage.setItem('dark-mode', 'true');
+            localStorage.setItem('dark-mode', true);
+        } else {
+            document.querySelector('html').classList.remove('dark');
+            document.querySelector('html').style.colorScheme = 'light';
         }
     </script>
 </head>

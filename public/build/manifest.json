@@ -1,6 +1,10 @@
 {
+  "public/images/cta-bg.svg": {
+    "file": "assets/cta-bg-B57yEDpb.svg",
+    "src": "public/images/cta-bg.svg"
+  },
   "resources/css/app.css": {
-    "file": "assets/app-Bh-lPIu6.css",
+    "file": "assets/app-c7I-ummO.css",
     "src": "resources/css/app.css",
     "isEntry": true
   },

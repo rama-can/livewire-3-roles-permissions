@@ -17,6 +17,13 @@
     syntax: "<angle>";
 }
 
+.pattern {
+    background-image: url("../../public/images/cta-bg.svg");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+}
+
 .shiki .highlight {
     background-color: hsl(197, 88%, 94%);
     padding: 3px 0;

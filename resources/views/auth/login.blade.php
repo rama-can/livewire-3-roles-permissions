@@ -40,7 +40,7 @@
         </div>
         @endif
         <!-- Warning -->
-        <div class="mt-5">
+        {{-- <div class="mt-5">
             <div class="bg-yellow-500/20 text-yellow-700 px-3 py-2 rounded-lg">
                 <svg class="inline w-3 h-3 shrink-0 fill-current" viewBox="0 0 12 12">
                     <path
@@ -50,6 +50,6 @@
                     To support you during the pandemic super pro features are free until March 31st.
                 </span>
             </div>
-        </div>
+        </div> --}}
     </div>
 </x-authentication-layout>

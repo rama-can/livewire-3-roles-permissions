@@ -1,13 +1,4 @@
 <footer class="bg-slate-100 shadow dark:bg-slate-900 pattern mt-10">
-    <style>
-        .pattern {
-            background-image: url("https://cruip.com/wp-content/themes/cruip-2/dist/images/cta-bg-02.svg");
-            background-repeat: no-repeat;
-            background-position: center;
-            background-size: cover;
-        }
-    </style>
-
     <div class="container px-6 py-10 mx-auto">
         <div class="flex flex-col items-center text-center">
             <a href="#">
