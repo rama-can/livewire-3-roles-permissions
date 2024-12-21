@@ -11,6 +11,12 @@
 
 @import "tailwindcss/utilities";
 
+@property --border-angle {
+    inherits: false;
+    initial-value: 0deg;
+    syntax: "<angle>";
+}
+
 .shiki .highlight {
     background-color: hsl(197, 88%, 94%);
     padding: 3px 0;
