@@ -1,5 +1,8 @@
 import colors from 'tailwindcss/colors';
 import forms from '@tailwindcss/forms';
+import customScrollbar from '../../js/plugins/customScrollbar';
+import softScrollbar from '../../js/plugins/softScrollbar';
+import numberAppearanceNone from '../../js/plugins/numberAppearanceNone';
 
 /** @type {import('tailwindcss').Config} */
 export default {
@@ -55,8 +58,11 @@ export default {
   ],
   plugins: [
     forms,
-    require('../../js/plugins/customScrollbar'),
-    require('../../js/plugins/softScrollbar'),
-    require('../../js/plugins/numberAppearanceNone'),
+    customScrollbar,
+    softScrollbar,
+    numberAppearanceNone,
+    // require('../../js/plugins/customScrollbar'),
+    // require('../../js/plugins/softScrollbar'),
+    // require('../../js/plugins/numberAppearanceNone'),
   ],
 };
