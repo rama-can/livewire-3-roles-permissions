@@ -38,10 +38,9 @@
                 </address>
             </div>
         </header>
+
         <div class="px-4 lg:px-0 mt-8 max-w-screen-md mx-auto text-lg leading-relaxed prose dark:prose-invert">
-            <x-markdown theme="github-dark">
-                {!! $post->content !!}
-            </x-markdown>
+            {!! $post->markdown !!}
         </div>
     </article>
     @script

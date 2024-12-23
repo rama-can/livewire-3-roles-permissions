@@ -79,7 +79,7 @@ npm install   # or yarn install or bun install
    - Copy the token for the next step
 
 4. Create a `.env.local` file:
-```env
+```bash
 # Required
 GITHUB_REPO=username/blog-posts-repo
 GITHUB_TOKEN=your_github_token_here
@@ -185,7 +185,7 @@ npm install # atau yarn install atau bun install
    - Salin token untuk langkah selanjutnya
 
 4. Buat file `.env.local`:
-```env
+```bash
 # Wajib diisi
 GITHUB_REPO = nama pengguna/blog-posts-repo
 GITHUB_TOKEN = github_token_Anda di sini

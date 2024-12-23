@@ -9,6 +9,10 @@ use Astrotomic\Translatable\Translatable;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Database\Eloquent\Concerns\HasUuids;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use League\CommonMark\MarkdownConverter;
+use League\CommonMark\Environment\Environment;
+use League\CommonMark\Extension\GithubFlavoredMarkdownExtension;
+use League\CommonMark\Extension\CommonMark\CommonMarkCoreExtension;
 
 class Post extends Model
 {
@@ -58,6 +62,17 @@ class Post extends Model
     {
         return $this->belongsTo(Category::class, 'category_id')
             ->with('translations');
+    }
+
+    public function getMarkdownAttribute()
+    {
+        $environment = new Environment();
+
+        $environment->addExtension(new CommonMarkCoreExtension());
+        $environment->addExtension(new GithubFlavoredMarkdownExtension());
+
+        $converter = new MarkdownConverter($environment);
+        return $converter->convert($this->content);
     }
 
     public function getThumbnailUrlAttribute()
