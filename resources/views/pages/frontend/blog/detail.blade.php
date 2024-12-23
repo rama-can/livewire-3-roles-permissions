@@ -41,7 +41,7 @@
 
         <div class="px-4 lg:px-0 mt-8 max-w-screen-md mx-auto text-lg leading-relaxed prose dark:prose-invert">
             <x-markdown>
-                {{ $post->content }}
+                {!! $article->content !!}
             </x-markdown>
         </div>
     </article>
