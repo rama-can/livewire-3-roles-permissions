@@ -26,7 +26,7 @@
                         <div class="flex items-center justify-center order-1 lg:order-2">
                             <div class="relative w-40 h-40 sm:w-80 sm:h-80">
                                 <img
-                                    src="{{ asset('storage/'. themes('general', 'cv')) }}"
+                                    src="{{ asset('storage/'. themes('general', 'personal_image')) }}"
                                     alt="Rama Can"
                                     class="rounded-full"
                                     priority
