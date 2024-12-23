@@ -72,8 +72,7 @@ class Post extends Model
         $environment->addExtension(new GithubFlavoredMarkdownExtension());
 
         $converter = new MarkdownConverter($environment);
-        $content = $converter->convert($this->content);
-        return htmlspecialchars($content, ENT_QUOTES, 'UTF-8');
+        return $converter->convert($this->content);
     }
 
     public function getThumbnailUrlAttribute()

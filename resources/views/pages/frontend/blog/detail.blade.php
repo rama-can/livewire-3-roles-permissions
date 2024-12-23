@@ -40,7 +40,9 @@
         </header>
 
         <div class="px-4 lg:px-0 mt-8 max-w-screen-md mx-auto text-lg leading-relaxed prose dark:prose-invert">
-            {!! $post->markdown !!}
+            <x-markdown>
+                {{ $post->content }}
+            </x-markdown>
         </div>
     </article>
     @script
