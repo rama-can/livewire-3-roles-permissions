@@ -19,6 +19,7 @@ Route::namespace('App\Modules')->group(function () {
     Route::get('/posts', 'Admin\Post\Index')->name('posts.index');
     Route::get('/posts/create', 'Admin\Post\Create')->name('posts.create');
     Route::get('/posts/{id}/edit', 'Admin\Post\Edit')->name('posts.edit');
+    Route::get('/subscriptions', 'Admin\Subscription\Resource')->name('subscriptions.index');
 });
 
 Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');

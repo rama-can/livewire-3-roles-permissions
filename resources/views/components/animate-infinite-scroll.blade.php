@@ -1,3 +1,14 @@
+{{-- <section>
+    <div class="container px-6 py-16 mx-auto">
+        <div class="text-start mb-5">
+            <h1 class="font-caveat font-extrabold text-2xl sm:text-4xl md:text-4xl text-indigo-500">
+                {{ __('frontend.works_with_technologies') }}
+            </h1>
+        </div>
+        <x-animate-infinite-scroll />
+        <hr class="my-10 border-slate-200 dark:border-slate-700" />
+    </div>
+</section> --}}
 <div
     x-data="{}"
     x-init="$nextTick(() => {

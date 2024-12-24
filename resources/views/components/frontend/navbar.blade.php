@@ -41,6 +41,25 @@
 
                 <div class="flex justify-center mt-6 lg:flex lg:mt-0 lg:-mx-2">
 
+                    <div x-data="{ isOpen: false, openedWithKeyboard: false }" class="relative" @keydown.esc.window="isOpen = false, openedWithKeyboard = false">
+                        <!-- Toggle Button -->
+                        <button type="button" @click="isOpen = !isOpen" class="flex items-center justify-center cursor-pointer w-8 h-8 hover:bg-gray-100 lg:hover:bg-gray-200 dark:hover:bg-gray-700 dark:lg:hover:bg-gray-700 rounded-full text-gray-500/80 dark:text-gray-400/80" aria-haspopup="true" :aria-expanded="isOpen || openedWithKeyboard">
+                            <span>{{ strtoupper(app()->getLocale()) }}</span>
+                        </button>
+
+                        <!-- Dropdown Menu -->
+                        <div x-cloak x-show="isOpen || openedWithKeyboard" x-transition x-trap="openedWithKeyboard" @click.outside="isOpen = false, openedWithKeyboard = false" class="absolute top-12 left-0 w-full min-w-[12rem] flex-col overflow-hidden rounded-md border border-slate-300 bg-slate-50 py-2 shadow-lg dark:border-slate-700 dark:bg-slate-800 dark:text-slate-300">
+                            @foreach(LaravelLocalization::getSupportedLocales() as $localeCode => $properties)
+                                <a href="{{ isset($currentPost) && $currentPost->hasTranslation($localeCode)
+                                    ? LaravelLocalization::getLocalizedURL($localeCode, route('blogs.detail', ['slug' => $currentPost->translate($localeCode)->slug]), [], true)
+                                    : LaravelLocalization::getLocalizedURL($localeCode, null, [], true) }}" wire:navigate
+                                    class="block px-4 py-2 text-sm hover:bg-gray-800/5 hover:text-gray-800 focus-visible:bg-gray-900/10 focus-visible:text-gray-900 text-gray-500/80 dark:text-gray-400 dark:hover:bg-gray-50/5 dark:hover:text-white dark:focus-visible:bg-gray-50/10 dark:focus-visible:text-white">
+                                    {{ ucfirst($properties['native']) }} <!-- Show language code -->
+                                </a>
+                            @endforeach
+                        </div>
+                    </div>
+
                     <x-theme-toggle class="mx-2" />
 
                     {{-- <a href="#" class="mx-2 text-gray-600 transition-colors duration-300 transform dark:text-gray-300 hover:text-gray-500 dark:hover:text-gray-300" aria-label="Github">

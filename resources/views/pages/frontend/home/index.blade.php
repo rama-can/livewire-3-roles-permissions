@@ -2,18 +2,18 @@
     <x-seo-meta
         title="Rama Can"
     />
-    <section class="relative h-[90vh] flex flex-col justify-center bg-slate-100 dark:bg-slate-900 overflow-hidden">
+    <section class="relative h-[88vh] flex flex-col justify-center bg-slate-100 dark:bg-slate-900 overflow-hidden">
 
         <div class="w-full max-w-6xl mx-auto px-4 md:px-6 py-24 mt-8 mb-5">
             <div>
                 <!-- Illustration #1 -->
                 <div class="absolute top-0 left-0 rotate-180 -translate-x-3/4 -scale-x-100 blur-3xl opacity-70 pointer-events-none" aria-hidden="true">
-                    <img src="{{ asset('images/shape.svg') }}" class="max-w-none" width="852" height="582" alt="Illustration" />
+                    <img src="{{ asset('images/shape.svg') }}" loading="lazy" class="max-w-none" width="852" height="582" alt="Illustration" />
                 </div>
 
                 <!-- Illustration #2 -->
                 <div class="absolute top-0 right-0 -translate-y-1/2 translate-x-1/4 blur-3xl opacity-70 pointer-events-none" aria-hidden="true">
-                    <img src="{{ asset('images/shape.svg') }}" class="max-w-none" width="852" height="582" alt="Illustration" />
+                    <img src="{{ asset('images/shape.svg') }}" loading="lazy" class="max-w-none" width="852" height="582" alt="Illustration" />
                 </div>
 
                 <!-- Particles animation -->
@@ -29,7 +29,7 @@
                                     src="{{ asset('storage/'. themes('general', 'personal_image')) }}"
                                     alt="Rama Can"
                                     class="rounded-full"
-                                    priority
+                                    loading="lazy"
                                 />
                             </div>
                         </div>
@@ -63,20 +63,9 @@
             </div>
         </div>
     </section>
-    {{-- @livewire('frontend.subscription.subscribe') --}}
+    @livewire('frontend.subscription.subscribe')
     <section>
-        <div class="container px-6 py-16 mx-auto">
-            <div class="text-start mb-5">
-                <h1 class="font-caveat font-extrabold text-2xl sm:text-4xl md:text-4xl text-indigo-500">
-                    {{ __('frontend.works_with_technologies') }}
-                </h1>
-            </div>
-            <x-animate-infinite-scroll />
-            <hr class="my-10 border-slate-200 dark:border-slate-700" />
-        </div>
-    </section>
-    <section>
-        <div class="container px-6 mx-auto">
+        <div class="container px-6 mx-auto mt-5">
             <div class="text-center">
                 <h1 class="text-2xl font-bold text-slate-800 capitalize lg:text-3xl dark:text-slate-200">Blogs</h1>
                 <p class="max-w-xl mx-auto mt-4 text-slate-800 dark:text-slate-200">

@@ -8,9 +8,12 @@ use Livewire\Attributes\On;
 use Livewire\WithFileUploads;
 use Livewire\Attributes\Title;
 use Livewire\Attributes\Locked;
+use Illuminate\Http\UploadedFile;
+use Intervention\Image\ImageManager;
 use TallStackUi\Traits\Interactions;
 use Illuminate\Support\Facades\Storage;
-use Illuminate\Http\UploadedFile;
+use Intervention\Image\Drivers\Gd\Driver;
+use Intervention\Image\Drivers\Gd\Encoders\WebpEncoder;
 
 class Resource extends Component
 {
@@ -75,11 +78,24 @@ class Resource extends Component
                 Storage::disk('public')->delete($setting->value);
             }
 
-            // Store the new file
-            $directory = $this->type === 'file' ? 'files' : 'images';
-            $path = $this->fileUpload->store($directory, 'public');
+            $manager = new ImageManager(Driver::class);
+
+            // Handle image uploads specifically
+            if ($this->type === 'image') {
+                $image = $manager->read($this->fileUpload->getRealPath());
+                $imageEncoded = $image->encode(new WebpEncoder(quality: 65)); // Encode to WebP with quality 65
+                $path = 'images/' . uniqid() . date('YmdHis') . '.webp';
+                Storage::disk('public')->put($path, $imageEncoded);
+            } else {
+                // Handle file uploads
+                $directory = 'files';
+                $path = $this->fileUpload->store($directory, 'public');
+            }
+
+            // Update the setting value
             $setting->value = $path;
         } else {
+            // Handle non-file types
             $setting->value = $this->value;
         }
 

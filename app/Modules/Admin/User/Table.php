@@ -43,7 +43,7 @@ class Table extends DataTableComponent
                             'type' => 'wire',
                             'label' => 'Delete',
                             'icon' => 'trash',
-                            'action' => '$dispatch(\'delete-confirmation\', {id: ' . $value . '})',
+                            'action' => '$dispatch(\'delete-confirmation\', {id: "' . $value . '"})',
                         ] : null,
                     ]),
                 ]),

@@ -22,7 +22,7 @@
         <id>{{ route('blogs.detail', $post->slug) }}</id>
         <published>{{ $post->created_at->toAtomString() }}</published>
         <summary>{{ $post->description }}</summary>
-        <content type="html">{{ $post->content }}</content>
+        <content type="html">{{ $post->markdown }}</content>
     </entry>
     @endforeach
 

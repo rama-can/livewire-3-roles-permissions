@@ -72,6 +72,7 @@ class RolePermissionSeeder extends Seeder
             'posts',
             'categories',
             'tags',
+            'subscriptions',
         ];
 
         foreach ($moduls as $modul) {

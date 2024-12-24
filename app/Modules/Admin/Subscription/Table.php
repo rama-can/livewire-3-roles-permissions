@@ -1,16 +1,19 @@
 <?php
 
-namespace App\Modules\Admin\Role;
+namespace App\Modules\Admin\Subscription;
 
-use App\Models\Role;
+use App\Models\Subscriber as Subscription;
 use Illuminate\Support\Facades\Gate;
+use App\Traits\Livewire\WithTableNumbering;
 use Rappasoft\LaravelLivewireTables\Views\Column;
 use Rappasoft\LaravelLivewireTables\DataTableComponent;
 use Rappasoft\LaravelLivewireTables\Views\Columns\ViewComponentColumn;
 
 class Table extends DataTableComponent
 {
-    protected $model = Role::class;
+    use WithTableNumbering;
+
+    protected $model = Subscription::class;
 
     public function configure(): void
     {
@@ -20,24 +23,17 @@ class Table extends DataTableComponent
     public function columns(): array
     {
         return [
-            Column::make("Id", "id")
+            $this->numberingColumn(),
+            Column::make("Email", "email")
                 ->sortable(),
-            Column::make("Name", "name")
-                ->sortable(),
-            Column::make("Created at", "created_at")
+            Column::make("Subcribe at", "created_at")
                 ->sortable(),
             ViewComponentColumn::make('Action', 'id')
                 ->component('components.table-action-column')
                 ->attributes(fn($value, $row, Column $column) => [
                     'dropdown' => true,
                     'actions' => array_filter([
-                        Gate::allows('update permissions') ? [
-                            'type' => 'wire',
-                            'label' => 'Edit',
-                            'icon' => 'pencil-square',
-                            'action' => '$dispatch(\'modal-form\', {id: "' . $value . '"})',
-                        ] : null,
-                        Gate::allows('delete permissions') ? [
+                        Gate::allows('delete subscriptions') ? [
                             'type' => 'wire',
                             'label' => 'Delete',
                             'icon' => 'trash',

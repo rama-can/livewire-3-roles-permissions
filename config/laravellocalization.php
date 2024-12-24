@@ -5,14 +5,14 @@ return [
     // These are sorted by the native name, which is the order you might show them in a language selector.
     // Regional languages are sorted by their base language, so "United States" sorts as "English, United States"
     'supportedLocales' => [
-        'en'          => [
+        'en' => [
             'name' => 'English',
             'script' => 'Latn',
             'native' => 'English',
             'regional' => 'en_US',
             'hreflang' => 'en'
         ],
-        'id'          => [
+        'id' => [
             'name' => 'Indonesian',
             'script' => 'Latn',
             'native' => 'Bahasa Indonesia',

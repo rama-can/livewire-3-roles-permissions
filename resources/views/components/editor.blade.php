@@ -11,7 +11,6 @@
     rel="stylesheet"
     href="https://cdn.jsdelivr.net/npm/easymde/dist/easymde.min.css"
 />
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/highlight.js/latest/styles/github.min.css">
 @endpush
 
 <div
@@ -65,5 +64,4 @@
 
 @push('scripts')
 <script src="https://cdn.jsdelivr.net/npm/easymde/dist/easymde.min.js" defer></script>
-<script src="https://cdn.jsdelivr.net/highlight.js/latest/highlight.min.js" defer></script>
 @endpush

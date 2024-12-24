@@ -2,7 +2,7 @@
     <x-seo-meta
         type="article"
         :title="$post->title"
-        :description="$post->excerpt"
+        :description="$post->description"
         :image="$post->thumbnailUrl"
         :url="route('blogs.detail', $post->slug)"
         :publishedAt="$post->created_at"
@@ -23,7 +23,7 @@
                     {{ $post->title }}
                 </h2>
                 <address class="flex mt-3 not-italic">
-                    <img src="{{ $post->user()->profile_photo_url ?? 'https://avatars.githubusercontent.com/u/59125992' }}" alt="{{ $post->user->name ?? 'Unknown' }}"
+                    <img src="{{ $post->user->profile_photo_url }}" alt="{{ $post->user->name ?? 'Unknown' }}"
                     class="h-10 w-10 rounded-full mr-2 object-cover" />
                     <div>
                         <p class="font-semibold text-gray-200 text-sm" rel="author">

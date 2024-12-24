@@ -11,25 +11,12 @@ use Spatie\LaravelMarkdown\MarkdownRenderer;
 
 class FeedController extends Controller
 {
-    protected $markdownService;
-
-    public function __construct(MarkdownService $markdownService)
-    {
-        $this->markdownService = $markdownService;
-    }
     /**
      * Handle the incoming request.
      */
     public function __invoke(Request $request)
     {
         $posts = Post::latest()->take(10)->get();
-
-        // manipulate the content of the post
-        foreach ($posts as $post) {
-            $post->content = app(MarkdownRenderer::class)
-                ->disableHighlighting()
-                ->toHtml($post->content);
-        }
 
         $site = [
             'name' => __('general.site_name'),

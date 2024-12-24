@@ -1,8 +1,10 @@
 <?php
 
 use Carbon\Carbon;
+use App\Models\Post;
 use App\Models\Setting;
 use Illuminate\Support\Facades\Config;
+use Illuminate\Support\Facades\Request;
 
 /**
  * Formats a given date to Indonesian locale.
@@ -87,11 +89,24 @@ if (!function_exists('languageSwitcher')) {
     }
 }
 
-// markdown to html
-if (!function_exists('markdownToHtml')) {
-    function markdownToHtml($content)
+if (!function_exists('getCurrentPost')) {
+    /**
+     * Get the current post based on the route and locale.
+     *
+     * @return Post|null
+     */
+    function getCurrentPost()
     {
-        return app(\App\Services\Markdown\MarkdownService::class)->convertToHtml($content);
+        $routeName = Request::route()?->getName();
+
+        if ($routeName === 'blogs.detail') {
+            $slug = Request::route('slug');
+            return Post::whereTranslation('slug', $slug, app()->getLocale())
+                ->with(['user', 'category'])
+                ->first();
+        }
+
+        return null;
     }
 }
 
