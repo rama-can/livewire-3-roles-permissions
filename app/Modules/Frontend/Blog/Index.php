@@ -14,6 +14,7 @@ class Index extends Component
     {
         return Post::latest()
             ->with('category', 'user', 'translations')
+            ->where('status', 'published')
             ->get();
     }
 

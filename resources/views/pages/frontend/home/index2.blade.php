@@ -21,12 +21,22 @@
                     <canvas data-particle-animation wire:ignore></canvas>
                 </div>
                 <div class="container mx-auto px-4 py-16 sm:px-6 lg:px-8">
-                    <div class="grid grid-cols-1 gap-8 lg:grid-cols-1 lg:gap-16">
+                    <div class="grid grid-cols-1 gap-8 lg:grid-cols-2 lg:gap-16">
                         <div class="flex items-center justify-center order-1 lg:order-2">
-                        <!-- Content -->
+                            <div class="relative w-40 h-40 sm:w-80 sm:h-80">
+                                <img
+                                    src="{{ asset('storage/'. themes('general', 'personal_image')) }}"
+                                    alt="Rama Can"
+                                    class="rounded-full"
+                                    loading="lazy"
+                                />
+                            </div>
+                        </div>
+
+                        <!-- Konten -->
                         <div class="flex flex-col justify-center order-2 lg:order-1 z-20">
                             <h1 class="text-3xl font-extrabold tracking-tight sm:text-5xl md:text-5xl">
-                                <span class="block text-slate-800 dark:text-slate-200">
+                                <span class="block text-slate-800 dark:text-slate-100">
                                     {{ __('frontend.frontend_personal_section_title'); }}
                                 </span>
                                 <span
@@ -38,6 +48,14 @@
                             <p class="mt-4 text-lg text-slate-800/80 dark:text-slate-200/80">
                                 {{ __('frontend.frontend_personal_section_description'); }}
                             </p>
+                            <div class="mt-8 flex flex-col sm:flex-row gap-4">
+                                <a
+                                    class="inline-flex justify-center whitespace-nowrap rounded-lg px-3.5 py-2.5 text-sm font-semibold text-slate-200 dark:text-slate-800 bg-gradient-to-r from-slate-800 to-slate-700 dark:from-slate-200 dark:to-slate-100 dark:hover:bg-slate-100 shadow focus:outline-none focus:ring focus:ring-slate-500/50 focus-visible:outline-none focus-visible:ring focus-visible:ring-slate-500/50 relative before:absolute before:inset-0 before:rounded-[inherit] before:bg-[linear-gradient(45deg,transparent_25%,theme(colors.white/.5)_50%,transparent_75%,transparent_100%)] dark:before:bg-[linear-gradient(45deg,transparent_25%,theme(colors.white)_50%,transparent_75%,transparent_100%)] before:bg-[length:250%_250%,100%_100%] before:bg-[position:200%_0,0_0] before:bg-no-repeat before:[transition:background-position_0s_ease] hover:before:bg-[position:-100%_0,0_0] hover:before:duration-[1500ms]"
+                                    href="{{ asset('storage/'. themes('general', 'cv')) }}" download="ramacan-cv.pdf"
+                                >
+                                    {{ __('general.download_cv') }}
+                                </a>
+                            </div>
                         </div>
                     </div>
                 </div>

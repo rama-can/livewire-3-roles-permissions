@@ -16,6 +16,7 @@ class Detail extends Component
         $locale = app()->getLocale();
         $this->post = Post::whereTranslation('slug', $slug, $locale)
             ->with(['user', 'category'])
+            ->where('status', 'published')
             ->firstOrFail();
     }
 
