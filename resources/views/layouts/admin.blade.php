@@ -12,6 +12,9 @@
     <link rel="icon" type="image/png" sizes="16x16" href="{{ asset('assets/favicon-16x16.png') }}">
     <link rel="manifest" href="{{ asset('assets/site.webmanifest') }}">
     <meta name="theme-color" content="#f9fafb">
+    <meta name="robots" content="noindex">
+    <meta name="googlebot" content="noindex">
+
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
