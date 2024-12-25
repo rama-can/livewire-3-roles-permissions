@@ -22,7 +22,7 @@
 
             @foreach ($menus as $menu)
                 @if ($menu['is_active'])
-                    <a href="{{ route($menu['route_name']) }}" wire:navigate class="text-sm text-slate-500 transition hover:text-slate-700 dark:text-slate-400 dark:hover:text-slate-200" aria-label="Blog">{{ $menu['label'] }}</a>
+                    <a href="{{ route($menu['route_name']) }}" wire:navigate class="text-sm text-slate-500 transition hover:text-slate-700 dark:text-slate-300 dark:hover:text-slate-100" aria-label="Blog">{{ $menu['label'] }}</a>
                 @endif
             @endforeach
             </div>
