@@ -64,7 +64,7 @@
                 </x-ui-tab.items>
                 @endforeach
                 </x-ui-tab>
-                <div class="flex justify-end mt-5">
+                <div class="flex justify-end mt-5 py-4 mr-8">
                     <x-ui-button text="SAVE" color="indigo" type="submit" class="font-semibold text-xs tracking-widest" />
                 </div>
             </form>

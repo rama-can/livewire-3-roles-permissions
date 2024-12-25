@@ -106,9 +106,8 @@ export default {
                 },
             },
             fontFamily: {
-                inter: ['Inter', 'sans-serif'],
-                caveat: ['Caveat', 'cursive'],
-                nycd: ['Nothing You Could Do', 'cursive'],
+                sans: ['Inter', 'sans-serif'],
+                poppins: ['Poppins', 'sans-serif'],
             },
             fontSize: {
                 xs: ['0.75rem', { lineHeight: '1.5' }],
