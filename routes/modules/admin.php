@@ -14,6 +14,7 @@ Route::namespace('App\Modules')->group(function () {
     Route::get('/settings', 'Admin\Setting\Resource')->name('settings.index');
     Route::get('/audit-logs', 'Admin\AuditLog\Index')->name('audit-logs.index');
     Route::get('/audit-logs/{id}', 'Admin\AuditLog\View')->name('audit-logs.view');
+    Route::get('/short-links', 'Admin\ShortLink\Resource')->name('short-links.index');
 
     Route::get('/categories', 'Admin\Category\Resource')->name('categories.index');
     Route::get('/posts', 'Admin\Post\Index')->name('posts.index');

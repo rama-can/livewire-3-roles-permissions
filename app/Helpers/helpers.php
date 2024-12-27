@@ -110,6 +110,27 @@ if (!function_exists('getCurrentPost')) {
     }
 }
 
+if (!function_exists('generateUniqueCode')) {
+    /**
+     * Generate a unique code.
+     *
+     * @param int $length The length of the code.
+     * @return string The generated unique code.
+     */
+    function generateUniqueCode($length = 8)
+    {
+        $characters = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';
+        $charactersLength = strlen($characters);
+        $code = '';
+
+        for ($i = 0; $i < $length; $i++) {
+            $code .= $characters[random_int(0, $charactersLength - 1)];
+        }
+
+        return $code;
+    }
+}
+
 // get all language except current language
 // if (!function_exists('getOtherLanguage')) {
 //     function getOtherLanguage()

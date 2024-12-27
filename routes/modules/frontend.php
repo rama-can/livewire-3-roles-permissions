@@ -17,6 +17,7 @@ Route::prefix(LaravelLocalization::setLocale())
         LaravelLocalizationRedirectFilter::class,
         LaravelLocalizationViewPath::class,
     ])->group(function () {
+        Route::get('/p/{code}', [App\Http\Controllers\Frontend\ShortLinkController::class, 'index'])->name('short-link');
         Route::get('/feed.xml', [App\Http\Controllers\Frontend\FeedController::class, '__invoke'])->name('rss');
         Route::get('/sitemap.xml', [App\Http\Controllers\Frontend\SitemapController::class, '__invoke'])->name('sitemap');
 

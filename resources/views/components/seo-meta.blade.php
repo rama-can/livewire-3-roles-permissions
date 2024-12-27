@@ -45,7 +45,7 @@
     <meta name="twitter:site" content="@_ramacan"/>
     <meta name="twitter:creator" content="@_ramacan"/>
     @if($type === 'article')
-    <link rel="shortlink" href="">
+    {{-- <link rel="shortlink" href=""> --}}
     <!--Schema.org-->
     <script type="application/ld+json">
         {

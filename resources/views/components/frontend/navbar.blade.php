@@ -63,7 +63,7 @@
 
 
                     <!-- Social Media Links -->
-                    <div class="flex py-1">
+                    <div class="flex py-1.5">
                         <a href="https://github.com/rama-can" class="mx-1" aria-label="Github" target="_blank">
                             <svg class="text-gray-600 transition-colors duration-300 transform dark:text-gray-300 hover:text-gray-500 dark:hover:text-gray-300 w-5 h-5 fill-current" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                                 <path
