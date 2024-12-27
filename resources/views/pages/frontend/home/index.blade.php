@@ -29,7 +29,7 @@
                                     {{ __('frontend.frontend_personal_section_title'); }}
                                 </span>
                                 <span
-                                    class="block bg-clip-text text-transparent bg-[linear-gradient(to_right,theme(colors.indigo.500),theme(colors.indigo.400),theme(colors.sky.500),theme(colors.fuchsia.500),theme(colors.sky.500),theme(colors.indigo.100),theme(colors.indigo.400))] animate-gradient dark:bg-[linear-gradient(to_right,theme(colors.indigo.500),theme(colors.indigo.300),theme(colors.sky.400),theme(colors.fuchsia.400),theme(colors.sky.400),theme(colors.indigo.100),theme(colors.indigo.400))] bg-[length:90%_auto] animate-gradient"
+                                    class="block bg-clip-text text-transparent bg-[linear-gradient(to_right,theme(colors.indigo.500),theme(colors.indigo.400),theme(colors.sky.500),theme(colors.fuchsia.500),theme(colors.sky.500),theme(colors.indigo.100),theme(colors.indigo.400))] animate-gradient dark:bg-[linear-gradient(to_right,theme(colors.indigo.500),theme(colors.indigo.300),theme(colors.sky.400),theme(colors.fuchsia.300),theme(colors.sky.400),theme(colors.indigo.100),theme(colors.indigo.400))] bg-[length:90%_auto] animate-gradient"
                                 >
                                     Full-Stack Developer
                                 </span>
