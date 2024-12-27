@@ -8,7 +8,10 @@ class TranslationServiceImplement implements TranslationService
 
     public function __construct()
     {
-        $authKey = env('DEEPL_AUTH_KEY');
+        $authKey = config('services.deepl.auth_key');
+        if (!$authKey) {
+            throw new \InvalidArgumentException('DeepL auth key is not set.');
+        }
         $this->translator = new \DeepL\Translator($authKey);
     }
 
