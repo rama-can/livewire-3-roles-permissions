@@ -22,7 +22,6 @@
                 </div>
                 <div class="container mx-auto px-4 py-16 sm:px-6 lg:px-8">
                     <div class="grid grid-cols-1 gap-8 lg:grid-cols-1 lg:gap-16">
-                        <div class="flex items-center justify-center order-1 lg:order-2">
                         <!-- Content -->
                         <div class="flex flex-col justify-center order-2 lg:order-1 z-20">
                             <h1 class="text-3xl font-extrabold tracking-tight sm:text-5xl md:text-5xl">
@@ -30,7 +29,7 @@
                                     {{ __('frontend.frontend_personal_section_title'); }}
                                 </span>
                                 <span
-                                    class="block bg-clip-text text-transparent bg-[linear-gradient(to_right,theme(colors.indigo.500),theme(colors.indigo.400),theme(colors.sky.500),theme(colors.fuchsia.500),theme(colors.sky.500),theme(colors.indigo.100),theme(colors.indigo.400))] animate-gradient dark:bg-[linear-gradient(to_right,theme(colors.indigo.400),theme(colors.indigo.100),theme(colors.sky.400),theme(colors.fuchsia.400),theme(colors.sky.400),theme(colors.indigo.100),theme(colors.indigo.400))] bg-[length:200%_auto] animate-gradient"
+                                    class="block bg-clip-text text-transparent bg-[linear-gradient(to_right,theme(colors.indigo.500),theme(colors.indigo.400),theme(colors.sky.500),theme(colors.fuchsia.500),theme(colors.sky.500),theme(colors.indigo.100),theme(colors.indigo.400))] animate-gradient dark:bg-[linear-gradient(to_right,theme(colors.indigo.500),theme(colors.indigo.300),theme(colors.sky.400),theme(colors.fuchsia.400),theme(colors.sky.400),theme(colors.indigo.100),theme(colors.indigo.400))] bg-[length:90%_auto] animate-gradient"
                                 >
                                     Full-Stack Developer
                                 </span>
