@@ -64,7 +64,7 @@ class UpdateProfileInformationForm extends Component
         );
 
         if (isset($this->photo)) {
-            return redirect()->route('profile.show');
+            return redirect()->route('admin.profile.show');
         }
 
         $this->dispatch('saved');
