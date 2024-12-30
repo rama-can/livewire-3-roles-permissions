@@ -13,7 +13,7 @@ class SitemapController extends Controller
      */
     public function __invoke(Request $request)
     {
-        $posts = Post::latest()->get();
+        $posts = Post::latest()->where('status', 'published')->get();
 
         $lastmod = $posts[0]->created_at->tz('UTC')->toAtomString();
 

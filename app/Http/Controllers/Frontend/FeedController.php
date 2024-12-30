@@ -16,7 +16,7 @@ class FeedController extends Controller
      */
     public function __invoke(Request $request)
     {
-        $posts = Post::latest()->take(10)->get();
+        $posts = Post::where('status', 'published')->latest()->take(10)->get();
 
         $site = [
             'name' => __('general.site_name'),
