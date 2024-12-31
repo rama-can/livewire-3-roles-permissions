@@ -15,7 +15,9 @@ class SitemapController extends Controller
     {
         $posts = Post::latest()->where('status', 'published')->get();
 
-        $lastmod = $posts[0]->created_at->tz('UTC')->toAtomString();
+        $lastmod = $posts->isNotEmpty()
+            ? $posts[0]->created_at->tz('UTC')->toAtomString()
+            : now()->tz('UTC')->toAtomString();
 
         $pages = [
             [
