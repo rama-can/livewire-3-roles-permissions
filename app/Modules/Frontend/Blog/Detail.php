@@ -16,14 +16,14 @@ class Detail extends Component
         $locale = app()->getLocale();
         $this->post = Post::whereTranslation('slug', $slug, $locale)
             ->with(['user', 'category'])
-            ->where('status', 'published')
+            // ->where('status', 'published')
             ->firstOrFail();
     }
 
-    // public function placeholder()
-    // {
-    //     return view('components.skeleton-blog', ['id' => $this->post->id ?? null]);
-    // }
+    public function placeholder()
+    {
+        return view('components.skeleton.blog-detail');
+    }
 
     #[Layout('layouts.frontend')]
     public function render()

@@ -52,21 +52,12 @@
                     {{ __('frontend.frontend_blogs_section_description') }}
                 </p>
             </div>
-            <div class="grid lg:grid-cols-3 gap-6 mt-8">
-                @foreach ($this->getPostsProperty as $item)
-                    <x-card-blog
-                        :thumbnail="$item->thumbnailUrl"
-                        :title="$item->title"
-                        :description="$item->description"
-                        :publishedAt="$item->created_at"
-                        :url="route('blogs.detail', $item->slug)"
-                    />
-                @endforeach
-            </div>
+            <!-- List Blog Card -->
+            <livewire:frontend.common.list-blog lazy />
         </div>
     </section>
 
     @push('scripts')
-    <script src="{{ asset('assets/particle-animation.js') }}"></script>
+    <script src="{{ asset('assets/particle-animation.js') }}" defer></script>
     @endpush
 </div>
