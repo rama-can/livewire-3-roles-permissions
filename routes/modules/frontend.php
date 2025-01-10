@@ -1,5 +1,6 @@
 <?php
 
+use Livewire\Livewire;
 use Illuminate\Support\Facades\Route;
 use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
 use Mcamara\LaravelLocalization\Middleware\LocaleCookieRedirect;
@@ -27,5 +28,9 @@ Route::prefix(LaravelLocalization::setLocale())
             Route::get('/blogs', 'Modules\Frontend\Blog\Index')->name('blogs.index');
             Route::get('/{slug}', 'Modules\Frontend\Blog\Detail')->name('blogs.detail');
             // Route::get('/works', 'Modules\Frontend\Work\Index')->name('works.index');
+        });
+
+        Livewire::setUpdateRoute(function ($handle) {
+            return Route::post('/livewire/update', $handle);
         });
     });
