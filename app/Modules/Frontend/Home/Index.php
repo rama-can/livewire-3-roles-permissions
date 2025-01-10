@@ -9,15 +9,6 @@ use Livewire\Attributes\Computed;
 
 class Index extends Component
 {
-    #[Computed()]
-    public function getPostsProperty()
-    {
-        return Post::latest()
-            ->with('category', 'user', 'translations')
-            ->where('status', 'published')
-            ->get();
-    }
-
     #[Layout('layouts.frontend')]
     public function render()
     {

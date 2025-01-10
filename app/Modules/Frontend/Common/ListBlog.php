@@ -16,7 +16,7 @@ class ListBlog extends Component
     {
         $blogs = Post::latest()
             ->with('category', 'user', 'translations')
-            // ->where('status', 'published')
+            ->where('status', 'published')
             ->get();
 
         return view('pages.frontend.common.list-blog', [
