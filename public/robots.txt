@@ -1,2 +1,6 @@
 User-agent: *
-Disallow:
+Disallow: /admin
+Disallow: /admin/login
+
+Sitemap: https://ramacan.dev/sitemap.xml
+Sitemap: https://ramacan.dev/id/sitemap.xml
