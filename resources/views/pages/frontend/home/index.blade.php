@@ -3,7 +3,6 @@
         title="Rama Can"
     />
     <section class="relative h-[88vh] flex flex-col justify-center bg-slate-100 dark:bg-slate-900 overflow-hidden">
-
         <div class="w-full max-w-6xl mx-auto px-4 md:px-6 py-24 mt-8 mb-5">
             <div>
                 <!-- Illustration #1 -->
@@ -28,9 +27,7 @@
                                 <span class="block text-slate-800 dark:text-slate-200">
                                     {{ __('frontend.frontend_personal_section_title'); }}
                                 </span>
-                                <span
-                                    class="block bg-clip-text text-transparent bg-[linear-gradient(to_right,theme(colors.indigo.500),theme(colors.indigo.400),theme(colors.sky.500),theme(colors.fuchsia.500),theme(colors.sky.500),theme(colors.indigo.100),theme(colors.indigo.400))] animate-gradient dark:bg-[linear-gradient(to_right,theme(colors.indigo.500),theme(colors.indigo.300),theme(colors.sky.400),theme(colors.fuchsia.300),theme(colors.sky.400),theme(colors.indigo.100),theme(colors.indigo.400))] bg-[length:90%_auto] animate-gradient"
-                                >
+                                <span class="block bg-clip-text text-transparent bg-[linear-gradient(to_right,theme(colors.indigo.500),theme(colors.indigo.400),theme(colors.sky.500),theme(colors.fuchsia.500),theme(colors.sky.500),theme(colors.indigo.100),theme(colors.indigo.400))] animate-gradient dark:bg-[linear-gradient(to_right,theme(colors.indigo.500),theme(colors.indigo.300),theme(colors.sky.400),theme(colors.fuchsia.300),theme(colors.sky.400),theme(colors.indigo.100),theme(colors.indigo.400))] bg-[length:90%_auto] animate-gradient">
                                     Full-Stack Developer
                                 </span>
                             </h1>
