@@ -4,11 +4,13 @@ namespace App\Modules\Frontend\Subscription;
 
 use Livewire\Component;
 use App\Models\Subscriber;
+use Livewire\Attributes\Lazy;
 use TallStackUi\Traits\Interactions;
 use Illuminate\Validation\ValidationException;
 use DanHarrin\LivewireRateLimiting\WithRateLimiting;
 use DanHarrin\LivewireRateLimiting\Exceptions\TooManyRequestsException;
 
+#[Lazy()]
 class Subscribe extends Component
 {
     use WithRateLimiting, Interactions;
@@ -38,6 +40,11 @@ class Subscribe extends Component
         $this->reset();
 
         $this->toast()->success('Thanks for subscribing.')->send();
+    }
+
+    public function placeholder()
+    {
+        return view('components.skeleton.subscribe');
     }
 
     public function render()
