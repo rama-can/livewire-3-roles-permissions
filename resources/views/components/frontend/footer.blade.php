@@ -1,7 +1,7 @@
 <footer class="bg-slate-100 shadow dark:bg-slate-900 pattern mt-10">
     <div class="container px-6 py-10 mx-auto">
         <div class="flex flex-col items-center text-center">
-            <a href="{{ route('home') }}">
+            <a href="{{ route('home') }}" wire:navigate.hover>
                 <x-logo width="84" height="84" />
             </a>
 

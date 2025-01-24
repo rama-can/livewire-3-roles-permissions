@@ -1,10 +1,34 @@
 {
+  "public/fonts/inter-latin-600.woff2": {
+    "file": "assets/inter-latin-600-D273HNI0.woff2",
+    "src": "public/fonts/inter-latin-600.woff2"
+  },
+  "public/fonts/inter-latin-700.woff2": {
+    "file": "assets/inter-latin-700-Sckx8rpT.woff2",
+    "src": "public/fonts/inter-latin-700.woff2"
+  },
+  "public/fonts/inter-latin-regular.woff2": {
+    "file": "assets/inter-latin-regular-BOOGhInR.woff2",
+    "src": "public/fonts/inter-latin-regular.woff2"
+  },
+  "public/fonts/poppins-latin-500.woff2": {
+    "file": "assets/poppins-latin-500-C8OXljZJ.woff2",
+    "src": "public/fonts/poppins-latin-500.woff2"
+  },
+  "public/fonts/poppins-latin-700.woff2": {
+    "file": "assets/poppins-latin-700-Qrb0O0WB.woff2",
+    "src": "public/fonts/poppins-latin-700.woff2"
+  },
+  "public/fonts/poppins-latin-regular.woff2": {
+    "file": "assets/poppins-latin-regular-cpxAROuN.woff2",
+    "src": "public/fonts/poppins-latin-regular.woff2"
+  },
   "public/images/cta-bg.svg": {
     "file": "assets/cta-bg-B57yEDpb.svg",
     "src": "public/images/cta-bg.svg"
   },
   "resources/css/app.css": {
-    "file": "assets/app-YvaMw_M3.css",
+    "file": "assets/app-B7q76_Pn.css",
     "src": "resources/css/app.css",
     "isEntry": true
   },

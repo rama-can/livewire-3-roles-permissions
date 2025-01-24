@@ -12,10 +12,6 @@
     <link rel="manifest" href="{{ asset('assets/site.webmanifest') }}">
     <meta name="theme-color" content="#f9fafb">
     {{ $seo ?? '' }}
-    <!-- Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Poppins:wght@400;500;700&display=swap" rel="stylesheet">
     @stack('styles')
     <tallstackui:script />
     <!-- Styles -->

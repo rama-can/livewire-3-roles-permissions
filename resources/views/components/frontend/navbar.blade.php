@@ -3,7 +3,7 @@
     <div class="container px-6 py-4 mx-auto">
         <div class="lg:flex lg:items-center">
             <div class="flex items-center justify-between">
-                <a href="{{ route('home') }}" wire:navigate>
+                <a href="{{ route('home') }}" wire:navigate.hover>
                     <x-logo width="42" height="42" />
                 </a>
 
